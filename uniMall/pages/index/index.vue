@@ -1,30 +1,34 @@
 <template>
-	<view class="content">
-		<view>
-			<view :style="'height:' + s_top + 'px;'"></view>
-		</view>
+	<view>
+        <u-navbar
+            leftText="返回"
+            title="个人中心"
+            :safeAreaInsetTop="false"
+        >
+            <view
+                class="u-nav-slot"
+                slot="left"
+            >
+                <u-icon
+                    name="arrow-left"
+                    size="19"
+                ></u-icon>
+                <u-line
+                    direction="column"
+                    :hairline="false"
+                    length="16"
+                    margin="0 8px"
+                ></u-line>
+                <u-icon
+                    name="home"
+                    size="20"
+                ></u-icon>
+            </view>
+        </u-navbar>
 	</view>
 </template>
 
 <script setup>
-	import {onMounted, reactive, toRefs} from 'vue'
-	
-	const search_data = reactive({
-		s_height: 0,
-		s_top: 0
-	})
-	const {s_height, s_top} = toRefs(search_data)
-	
-	onMounted(() => {
-		capSule()
-	})
-	
-	//获取胶囊按钮的位置数据
-	function capSule() {
-		const but_data = wx.getMenuButtonBoundingClientRect()
-		console.log(but_data)
-		search_data.s_height = but_data.top
-	}
 </script>
 
 <style>

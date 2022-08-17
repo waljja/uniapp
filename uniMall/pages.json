@@ -1,13 +1,17 @@
 {
+	"easycom": { //配置uniapp easycom组件模式
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "uniapp电商"
 			}
 		}
-	    ,{
-            "path" : "pages/commodity/commodity",
+		,{
+            "path" : "pages/list/list",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -16,7 +20,7 @@
             
         }
         ,{
-            "path" : "pages/order/order/order",
+            "path" : "pages/my/my",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -24,6 +28,16 @@
             }
             
         }
+		,{
+			"path" : "pages/shopcar/shopcar",
+			"style" :                                                                                    
+			{
+			    "navigationBarTitleText": "",
+			    "enablePullDownRefresh": false
+			}
+			
+		}
+		
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -45,16 +59,22 @@
 				"text": "首页"
 			},
 			{
-				"pagePath": "pages/commodity/commodity",
+				"pagePath": "pages/list/list",
 				"iconPath": "static/tab/商品.png",
 				"selectedIconPath": "static/tab/商品-选中.png",
-				"text": "商品管理"
+				"text": "分类"
 			},
 			{
-				"pagePath": "pages/order/order/order",
-				"iconPath": "static/tab/订单管理.png",
-				"selectedIconPath": "static/tab/订单管理-选中.png",
-				"text": "订单管理"
+				"pagePath": "pages/shopcar/shopcar",
+				"iconPath": "static/tab/购物车.png",
+				"selectedIconPath": "static/tab/购物车-选中.png",
+				"text": "购物车"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"iconPath": "static/tab/我的.png",
+				"selectedIconPath": "static/tab/我的-选中.png",
+				"text": "我的"
 			}
 		]
 	}

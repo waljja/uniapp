@@ -1,6 +1,6 @@
 <template>
 	<view>
-		商品管理
+		
 	</view>
 </template>
 
