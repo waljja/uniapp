@@ -2,8 +2,8 @@
 	<view class="index">
 		<!-- #ifdef H5 -->
 		<view class="wx-nav">
-			<view class="iconfont icon-fangdajing" style="height: 100px; width: 100px;"></view>
-			<text>识货</text>
+			<view class="iconfont icon-fangdajing"></view>
+			<text style="font-size: 23px;">识货</text>
 			<view class="iconfont icon-xiaoxi"></view>
 		</view>
 		<!-- #endif -->
