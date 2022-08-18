@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/commodity/commodity",
-    "pages/order/order/order"
+    "pages/list/list",
+    "pages/my/my",
+    "pages/shopcar/shopcar"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -23,19 +24,24 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/commodity/commodity",
+        "pagePath": "pages/list/list",
         "iconPath": "static/tab/商品.png",
         "selectedIconPath": "static/tab/商品-选中.png",
-        "text": "商品管理"
+        "text": "分类"
       },
       {
-        "pagePath": "pages/order/order/order",
-        "iconPath": "static/tab/订单管理.png",
-        "selectedIconPath": "static/tab/订单管理-选中.png",
-        "text": "订单管理"
+        "pagePath": "pages/shopcar/shopcar",
+        "iconPath": "static/tab/购物车.png",
+        "selectedIconPath": "static/tab/购物车-选中.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "static/tab/我的.png",
+        "selectedIconPath": "static/tab/我的-选中.png",
+        "text": "我的"
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

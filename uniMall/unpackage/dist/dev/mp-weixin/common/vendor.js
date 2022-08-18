@@ -14,37 +14,6 @@ function makeMap(str, expectsLowerCase) {
   }
   return expectsLowerCase ? (val) => !!map[val.toLowerCase()] : (val) => !!map[val];
 }
-function normalizeStyle(value) {
-  if (isArray(value)) {
-    const res = {};
-    for (let i = 0; i < value.length; i++) {
-      const item = value[i];
-      const normalized = isString(item) ? parseStringStyle(item) : normalizeStyle(item);
-      if (normalized) {
-        for (const key in normalized) {
-          res[key] = normalized[key];
-        }
-      }
-    }
-    return res;
-  } else if (isString(value)) {
-    return value;
-  } else if (isObject(value)) {
-    return value;
-  }
-}
-const listDelimiterRE = /;(?![^(]*\))/g;
-const propertyDelimiterRE = /:(.+)/;
-function parseStringStyle(cssText) {
-  const ret = {};
-  cssText.split(listDelimiterRE).forEach((item) => {
-    if (item) {
-      const tmp = item.split(propertyDelimiterRE);
-      tmp.length > 1 && (ret[tmp[0].trim()] = tmp[1].trim());
-    }
-  });
-  return ret;
-}
 const EMPTY_OBJ = Object.freeze({});
 const EMPTY_ARR = Object.freeze([]);
 const NOOP = () => {
@@ -2226,9 +2195,6 @@ function isReadonly(value) {
 function isShallow(value) {
   return !!(value && value["__v_isShallow"]);
 }
-function isProxy(value) {
-  return isReactive(value) || isReadonly(value);
-}
 function toRaw(observed) {
   const raw = observed && observed["__v_raw"];
   return raw ? toRaw(raw) : observed;
@@ -2314,35 +2280,6 @@ const shallowUnwrapHandlers = {
 };
 function proxyRefs(objectWithRefs) {
   return isReactive(objectWithRefs) ? objectWithRefs : new Proxy(objectWithRefs, shallowUnwrapHandlers);
-}
-function toRefs(object) {
-  if (!isProxy(object)) {
-    console.warn(`toRefs() expects a reactive object but received a plain one.`);
-  }
-  const ret = isArray(object) ? new Array(object.length) : {};
-  for (const key in object) {
-    ret[key] = toRef(object, key);
-  }
-  return ret;
-}
-class ObjectRefImpl {
-  constructor(_object, _key, _defaultValue) {
-    this._object = _object;
-    this._key = _key;
-    this._defaultValue = _defaultValue;
-    this.__v_isRef = true;
-  }
-  get value() {
-    const val = this._object[this._key];
-    return val === void 0 ? this._defaultValue : val;
-  }
-  set value(newVal) {
-    this._object[this._key] = newVal;
-  }
-}
-function toRef(object, key, defaultValue) {
-  const val = object[key];
-  return isRef(val) ? val : new ObjectRefImpl(object, key, defaultValue);
 }
 class ComputedRefImpl {
   constructor(getter, _setter, isReadonly2, isSSR) {
@@ -2911,8 +2848,8 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = EM
       warn$1(`watch() "deep" option is only respected when using the watch(source, callback, options?) signature.`);
     }
   }
-  const warnInvalidSource = (s2) => {
-    warn$1(`Invalid watch source: `, s2, `A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types.`);
+  const warnInvalidSource = (s) => {
+    warn$1(`Invalid watch source: `, s, `A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types.`);
   };
   const instance = currentInstance;
   let getter;
@@ -2926,16 +2863,16 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = EM
     deep = true;
   } else if (isArray(source)) {
     isMultiSource = true;
-    forceTrigger = source.some((s2) => isReactive(s2) || isShallow(s2));
-    getter = () => source.map((s2) => {
-      if (isRef(s2)) {
-        return s2.value;
-      } else if (isReactive(s2)) {
-        return traverse(s2);
-      } else if (isFunction(s2)) {
-        return callWithErrorHandling(s2, instance, 2);
+    forceTrigger = source.some((s) => isReactive(s) || isShallow(s));
+    getter = () => source.map((s) => {
+      if (isRef(s)) {
+        return s.value;
+      } else if (isReactive(s)) {
+        return traverse(s);
+      } else if (isFunction(s)) {
+        return callWithErrorHandling(s, instance, 2);
       } else {
-        warnInvalidSource(s2);
+        warnInvalidSource(s);
       }
     });
   } else if (isFunction(source)) {
@@ -5115,23 +5052,6 @@ function getCreateApp() {
     return my[method];
   }
 }
-function stringifyStyle(value) {
-  if (isString(value)) {
-    return value;
-  }
-  return stringify(normalizeStyle(value));
-}
-function stringify(styles) {
-  let ret = "";
-  if (!styles || isString(styles)) {
-    return ret;
-  }
-  for (const key in styles) {
-    ret += `${key.startsWith(`--`) ? key : hyphenate(key)}:${styles[key]};`;
-  }
-  return ret;
-}
-const s = (value) => stringifyStyle(value);
 function createApp$1(rootComponent, rootProps = null) {
   rootComponent && (rootComponent.mpType = "app");
   return createVueApp(rootComponent, rootProps).use(plugin);
@@ -5895,8 +5815,3 @@ const createSubpackageApp = initCreateSubpackageApp();
 }
 exports._export_sfc = _export_sfc;
 exports.createSSRApp = createSSRApp;
-exports.onMounted = onMounted;
-exports.reactive = reactive;
-exports.s = s;
-exports.toRefs = toRefs;
-exports.unref = unref;

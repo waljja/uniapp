@@ -1,0 +1,23 @@
+{
+  "id": "3596192",
+  "name": "unimall",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8288837",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e848",
+      "unicode_decimal": 59464
+    },
+    {
+      "icon_id": "11372722",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e8bd",
+      "unicode_decimal": 59581
+    }
+  ]
+}

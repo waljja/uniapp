@@ -4,8 +4,9 @@ exports[Symbol.toStringTag] = "Module";
 var common_vendor = require("./common/vendor.js");
 if (!Math) {
   "./pages/index/index.js";
-  "./pages/commodity/commodity.js";
-  "./pages/order/order/order.js";
+  "./pages/list/list.js";
+  "./pages/my/my.js";
+  "./pages/shopcar/shopcar.js";
 }
 const _sfc_main = {
   onLaunch: function() {
@@ -18,7 +19,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/dingguozhao/Desktop/uniMall/App.vue"]]);
+var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/dingguozhao/Desktop/uniapp/uniMall/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
   return {
