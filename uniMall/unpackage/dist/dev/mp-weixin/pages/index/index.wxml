@@ -1,1 +1,1 @@
-<view class="index data-v-57280228"><view class="wx-nav data-v-57280228"><view class="iconfont icon-fangdajing data-v-57280228"></view><text class="data-v-57280228">识货</text><view class="iconfont icon-xiaoxi data-v-57280228"></view></view></view>
+<view class="index data-v-4bde1ecc"><view class="wx-nav data-v-4bde1ecc"><view class="iconfont icon-fangdajing data-v-4bde1ecc"></view><text class="data-v-4bde1ecc">识货</text><view class="iconfont icon-xiaoxi data-v-4bde1ecc"></view></view><index-swiper class="data-v-4bde1ecc" u-i="4bde1ecc-0" bind:__l="__l"></index-swiper></view>

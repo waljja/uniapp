@@ -15,10 +15,29 @@
 			<view class="iconfont icon-xiaoxi"></view>
 		</view>
 		<!-- #endif -->
+		
+		<IndexSwiper></IndexSwiper>
 	</view>
 </template>
 
-<script setup>
+<script>
+	import IndexSwiper from '@/components/index/IndexSwiper.vue'
+	import Recommend from '@/components/index/@/components/index/Recommend.vue'
+	
+	export default {
+		components: {
+			IndexSwiper,
+			Recommend
+		},
+		data() {
+			return {
+				
+			}
+		},
+		methods: {
+			
+		}
+	}
 </script>
 
 <style scoped>

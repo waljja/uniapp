@@ -1,13 +1,13 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页
 		{
-			"path": "pages/index/index",
+			"path": "pages/index/Index",
 			"style": {
 				"navigationStyle": "custom"
 			}
 		}
 		,{
-            "path" : "pages/list/list",
+            "path" : "pages/list/List",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -16,7 +16,7 @@
             
         }
         ,{
-            "path" : "pages/my/my",
+            "path" : "pages/my/My",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -25,7 +25,7 @@
             
         }
 		,{
-			"path" : "pages/shopcar/shopcar",
+			"path" : "pages/shopcar/ShopCar",
 			"style" :                                                                                    
 			{
 			    "navigationBarTitleText": "",
@@ -34,6 +34,15 @@
 			
 		}
 		
+        ,{
+            "path" : "components/index/IndexSwiper",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -49,25 +58,25 @@
 		"backgroundColor": "#ffffff",
 		"list": [
 			{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/index/Index",
 				"iconPath": "static/tab/首页.png",
 				"selectedIconPath": "static/tab/首页-选中.png",
 				"text": "首页"
 			},
 			{
-				"pagePath": "pages/list/list",
+				"pagePath": "pages/list/List",
 				"iconPath": "static/tab/商品.png",
 				"selectedIconPath": "static/tab/商品-选中.png",
 				"text": "分类"
 			},
 			{
-				"pagePath": "pages/shopcar/shopcar",
+				"pagePath": "pages/shopcar/ShopCar",
 				"iconPath": "static/tab/购物车.png",
 				"selectedIconPath": "static/tab/购物车-选中.png",
 				"text": "购物车"
 			},
 			{
-				"pagePath": "pages/my/my",
+				"pagePath": "pages/my/My",
 				"iconPath": "static/tab/我的.png",
 				"selectedIconPath": "static/tab/我的-选中.png",
 				"text": "我的"
