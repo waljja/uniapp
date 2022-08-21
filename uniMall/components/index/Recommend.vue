@@ -3,16 +3,16 @@
 		<view class="recommend-item">
 			<image class="item-big" src="../../static/banner/女装.jpg" mode=""></image>
 			<view class="item-small">
-				<image class="item-img" src="../../static/banner/女装.jpg" mode=""></image>
-				<image class="item-img" src="../../static/banner/女装.jpg" mode=""></image>
+				<image class="item-img" src="../../static/banner/NMD菲董黄.jpg" mode=""></image>
+				<image class="item-img" src="../../static/banner/NMD黑红.jpg" mode=""></image>
 			</view>
 		</view>
 		
 		<view class="recommend-item">
 			<image class="item-big" src="../../static/banner/女装.jpg" mode=""></image>
 			<view class="item-small">
-				<image class="item-img" src="../../static/banner/女装.jpg" mode=""></image>
-				<image class="item-img" src="../../static/banner/女装.jpg" mode=""></image>
+				<image class="item-img" src="../../static/banner/DUNK熊猫.jpg" mode=""></image>
+				<image class="item-img" src="../../static/banner/style36蓝.jpg" mode=""></image>
 			</view>
 		</view>
 	</view>
@@ -47,5 +47,13 @@
 	.item-big {
 		width: 100%;
 		height: 300rpx;
+	}
+	.item-small {
+		width: 100%;
+		height: 240rpx;
+	}
+	.item-img {
+		width: 50%;
+		height: 240rpx;
 	}
 </style>

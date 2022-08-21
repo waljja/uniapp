@@ -16,18 +16,25 @@
 		</view>
 		<!-- #endif -->
 		
-		<IndexSwiper></IndexSwiper>
+		<IndexSwiper></IndexSwiper>		
+		<Recommend></Recommend>
+		<Card cardTitle='猜你喜欢'></Card>
+		<CommodityList></CommodityList>
 	</view>
 </template>
 
 <script>
 	import IndexSwiper from '@/components/index/IndexSwiper.vue'
-	import Recommend from '@/components/index/@/components/index/Recommend.vue'
+	import Recommend from '@/components/index/Recommend.vue'
+	import Card from '../../components/common/Card.vue'
+	import CommodityList from '../../components/common/CommodityList.vue'
 	
 	export default {
 		components: {
 			IndexSwiper,
-			Recommend
+			Recommend,
+			Card,
+			CommodityList
 		},
 		data() {
 			return {
@@ -41,13 +48,13 @@
 </script>
 
 <style scoped>
-.wx-nav {
-	height: 200rpx;
-	width: 100%;
-	line-height-step: 200rpx;
-	text-align: center;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
+	.wx-nav {
+		height: 200rpx;
+		width: 100%;
+		line-height-step: 200rpx;
+		text-align: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 </style>

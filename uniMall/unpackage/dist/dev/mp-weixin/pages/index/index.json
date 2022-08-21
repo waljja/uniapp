@@ -1,6 +1,9 @@
 {
   "navigationStyle": "custom",
   "usingComponents": {
-    "index-swiper": "../../components/index/IndexSwiper"
+    "index-swiper": "../../components/index/IndexSwiper",
+    "recommend": "../../components/index/Recommend",
+    "card": "../../components/common/Card",
+    "commodity-list": "../../components/common/CommodityList"
   }
 }
