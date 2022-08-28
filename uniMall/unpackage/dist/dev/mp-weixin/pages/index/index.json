@@ -4,6 +4,9 @@
     "index-swiper": "../../components/index/IndexSwiper",
     "recommend": "../../components/index/Recommend",
     "card": "../../components/common/Card",
-    "commodity-list": "../../components/common/CommodityList"
+    "commodity-list": "../../components/common/CommodityList",
+    "banner": "../../components/index/Banner",
+    "icons": "../../components/index/Icons",
+    "hot": "../../components/index/Hot"
   }
 }

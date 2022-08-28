@@ -4,12 +4,10 @@
 		flex-wrap: wrap;
 }
 .commodity-item {
-		width: 375rpx;
 		padding-bottom: 20rpx;
 }
 .commodity-img {
 		width: 100%;
-		height: 375rpx;
 }
 .commodity-content {
 		text-align: center;

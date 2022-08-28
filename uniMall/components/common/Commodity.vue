@@ -1,7 +1,7 @@
 <template>
-	<view class="commodity">
-		<view class="commodity-item" v-for="(item, index) in dataList" :key="index">
-			<image class="commodity-img" :src="item.imgUrl" mode=""></image>
+	<view class="commodity" :style="'flex-wrap: ' + wrap + ';''">
+		<view class="commodity-item" v-for="(item, index) in dataList" :key="index" :style="'width: ' + itemW + ';'">
+			<image class="commodity-img" :src="item.imgUrl" mode="" :style="'height: ' + imgH + ';'"></image>
 			<view class="commodity-content">
 				<text class="commodity-name">
 					{{item.name}}
@@ -20,15 +20,24 @@
 	export default {
 		name: "Commodity",
 		props: {
-			dataList: Array
+			dataList: Array,
+			itemW: {
+				type: String,
+				default: "375rpx"
+			},
+			imgH: {
+				type: String,
+				default: "375rpx"
+			},
+			wrap: {
+				type: String,
+				default: "wrap"
+			}
 		},
 		data() {
 			return {
 				
 			}
-		},
-		methods: {
-			
 		}
 	}
 </script>
@@ -36,15 +45,12 @@
 <style>
 	.commodity {
 		display: flex;
-		flex-wrap: wrap;
 	}
 	.commodity-item {
-		width: 375rpx;
 		padding-bottom: 20rpx;
 	}
 	.commodity-img {
 		width: 100%;
-		height: 375rpx;
 	}
 	.commodity-content {
 		text-align: center;

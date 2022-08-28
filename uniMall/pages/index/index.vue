@@ -16,10 +16,13 @@
 		</view>
 		<!-- #endif -->
 		
-		<IndexSwiper></IndexSwiper>		
+		<Banner></Banner>
+		<IndexSwiper></IndexSwiper>	
+		<Icons></Icons>
 		<Recommend></Recommend>
 		<Card cardTitle='猜你喜欢'></Card>
 		<CommodityList></CommodityList>
+		<Hot></Hot>
 	</view>
 </template>
 
@@ -28,21 +31,24 @@
 	import Recommend from '@/components/index/Recommend.vue'
 	import Card from '../../components/common/Card.vue'
 	import CommodityList from '../../components/common/CommodityList.vue'
+	import Banner from "../../components/index/Banner.vue"
+	import Icons from "../../components/index/Icons.vue"
+	import Hot from "@/components/index/Hot.vue"
 	
 	export default {
 		components: {
 			IndexSwiper,
 			Recommend,
 			Card,
-			CommodityList
+			CommodityList,
+			Banner,
+			Icons,
+			Hot
 		},
 		data() {
 			return {
 				
 			}
-		},
-		methods: {
-			
 		}
 	}
 </script>
