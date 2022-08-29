@@ -7,6 +7,7 @@
     "commodity-list": "../../components/common/CommodityList",
     "banner": "../../components/index/Banner",
     "icons": "../../components/index/Icons",
-    "hot": "../../components/index/Hot"
+    "hot": "../../components/index/Hot",
+    "shop": "../../components/index/Shop"
   }
 }

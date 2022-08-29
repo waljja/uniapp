@@ -1,5 +1,5 @@
 <template>
-	<view class="commodity" :style="'flex-wrap: ' + wrap + ';''">
+	<view class="commodity" :style="'flex-wrap: ' + wrap + ';'">
 		<view class="commodity-item" v-for="(item, index) in dataList" :key="index" :style="'width: ' + itemW + ';'">
 			<image class="commodity-img" :src="item.imgUrl" mode="" :style="'height: ' + imgH + ';'"></image>
 			<view class="commodity-content">

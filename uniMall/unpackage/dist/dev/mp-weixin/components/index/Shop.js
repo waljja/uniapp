@@ -2,13 +2,13 @@
 var common_vendor = require("../../common/vendor.js");
 const Commodity = () => "../common/Commodity.js";
 const _sfc_main = {
-  name: "Hot",
+  name: "Shop",
   components: {
     Commodity
   },
   data() {
     return {
-      hotList: [
+      shopList: [
         {
           id: 1,
           imgUrl: "../../static/commodity/\u88D9\u5B50\u7EFF.jpg",
@@ -68,11 +68,12 @@ if (!Array) {
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
     a: common_vendor.p({
-      dataList: $data.hotList,
-      itemW: "250rpx",
-      imgH: "220rpx"
+      dataList: $data.shopList,
+      wrap: "nowrap",
+      itemW: "200rpx",
+      imgH: "200rpx"
     })
   };
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-479756c5"], ["__file", "C:/Users/dingguozhao/Desktop/uniapp/uniMall/components/index/Hot.vue"]]);
+var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-aaa41fa4"], ["__file", "C:/Users/dingguozhao/Desktop/uniapp/uniMall/components/index/Shop.vue"]]);
 wx.createComponent(Component);

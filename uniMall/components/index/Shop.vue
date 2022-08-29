@@ -3,12 +3,12 @@
 		<view class="shop-item">
 			<view class="img-big">
 				<image class="img-big" src="../../static/banner/2.jpg" mode=""></image>
-				<scroll-view scroll-x="true" class="scroll-content">
-					<view class="scroll-item" >
-						<Commodity :dataList="shopList" wrap="no"></Commodity>
-					</view>
-				</scroll-view>
 			</view>
+			<scroll-view scroll-x="true" show-scrollbar="false" class="scroll-content">
+				<view class="scroll-item">
+					<Commodity :dataList="shopList" wrap="nowrap" itemW="200rpx" imgH="200rpx"></Commodity>
+				</view>
+			</scroll-view>
 		</view>
 	</view>
 </template>

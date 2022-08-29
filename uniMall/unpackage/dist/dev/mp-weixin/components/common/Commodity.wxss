@@ -1,7 +1,6 @@
 
 .commodity {
 		display: flex;
-		flex-wrap: wrap;
 }
 .commodity-item {
 		padding-bottom: 20rpx;

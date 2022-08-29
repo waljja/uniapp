@@ -23,17 +23,19 @@
 		<Card cardTitle='猜你喜欢'></Card>
 		<CommodityList></CommodityList>
 		<Hot></Hot>
+		<Shop></Shop>
 	</view>
 </template>
 
 <script>
 	import IndexSwiper from '@/components/index/IndexSwiper.vue'
 	import Recommend from '@/components/index/Recommend.vue'
-	import Card from '../../components/common/Card.vue'
-	import CommodityList from '../../components/common/CommodityList.vue'
-	import Banner from "../../components/index/Banner.vue"
-	import Icons from "../../components/index/Icons.vue"
+	import Card from '@/components/common/Card.vue'
+	import CommodityList from '@/components/common/CommodityList.vue'
+	import Banner from "@/components/index/Banner.vue"
+	import Icons from "@/components/index/Icons.vue"
 	import Hot from "@/components/index/Hot.vue"
+	import Shop from "@/components/index/Shop.vue"
 	
 	export default {
 		components: {
@@ -43,7 +45,8 @@
 			CommodityList,
 			Banner,
 			Icons,
-			Hot
+			Hot,
+			Shop
 		},
 		data() {
 			return {

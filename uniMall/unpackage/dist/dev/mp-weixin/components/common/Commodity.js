@@ -11,6 +11,10 @@ const _sfc_main = {
     imgH: {
       type: String,
       default: "375rpx"
+    },
+    wrap: {
+      type: String,
+      default: "wrap"
     }
   },
   data() {
@@ -30,8 +34,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       };
     }),
     b: common_vendor.s("height: " + $props.imgH + ";"),
-    c: common_vendor.s("width: " + $props.itemW + ";")
+    c: common_vendor.s("width: " + $props.itemW + ";"),
+    d: common_vendor.s("flex-wrap: " + $props.wrap + ";")
   };
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/uniapp/uniMall/components/common/Commodity.vue"]]);
+var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/dingguozhao/Desktop/uniapp/uniMall/components/common/Commodity.vue"]]);
 wx.createComponent(Component);

@@ -1,1 +1,1 @@
-<view class="commodity-list"><commodity wx:if="{{a}}" u-i="0b1148d2-0" bind:__l="__l" u-p="{{a}}"></commodity></view>
+<view class="commodity-list"><commodity wx:if="{{a}}" u-i="203129fb-0" bind:__l="__l" u-p="{{a}}"></commodity></view>
