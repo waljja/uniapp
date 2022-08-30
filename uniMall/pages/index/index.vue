@@ -16,6 +16,18 @@
 		</view>
 		<!-- #endif -->
 		
+		<scroll-view scroll-x="true" class="scroll-content">
+			<view class="scroll-item" v-for="(item, index) in topBar" :key="index" @tap="changeTab(index)">
+				<text>{{item.name}}</text>
+			</view>
+		</scroll-view>
+		
+		<swiper @change="onChangeTab" :current="topBarIndex">
+			<swiper-item v-for="(item, index) in topBar" :key="index">
+				<view>{{item.name}}</view>
+			</swiper-item>
+		</swiper>
+		
 		<Banner></Banner>
 		<IndexSwiper></IndexSwiper>	
 		<Icons></Icons>
@@ -24,6 +36,8 @@
 		<CommodityList></CommodityList>
 		<Hot></Hot>
 		<Shop></Shop>
+		<card cardTitle="为您推荐"></card>
+		<CommodityList></CommodityList>
 	</view>
 </template>
 
@@ -50,7 +64,38 @@
 		},
 		data() {
 			return {
-				
+				topBarIndex: 0,
+				topBar: [
+					{
+						name: "1"
+					},
+					{
+						name: "2"
+					},
+					{
+						name: "3"
+					},
+					{
+						name: "4"
+					},
+					{
+						name: "5"
+					},
+					{
+						name: "6"
+					}
+				]
+			}
+		},
+		methods: {
+			changeTab(index) {
+				if(this.topBarIndex === index) {
+					return
+				}
+				this.topBarIndex = index
+			},
+			onChangeTab(e) {
+				this.changeTab(e.detail.current)
 			}
 		}
 	}
@@ -65,5 +110,15 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	}
+	.scroll-content {
+		width: 100%;
+		height: 80rpx;
+		white-space: nowrap;
+	}
+	.scroll-item {
+		padding: 10rpx 30rpx;
+		display: inline-block;
+		font-size: 32rpx;
 	}
 </style>

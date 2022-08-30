@@ -20,7 +20,40 @@ const _sfc_main = {
     Shop
   },
   data() {
-    return {};
+    return {
+      topBarIndex: 0,
+      topBar: [
+        {
+          name: "1"
+        },
+        {
+          name: "2"
+        },
+        {
+          name: "3"
+        },
+        {
+          name: "4"
+        },
+        {
+          name: "5"
+        },
+        {
+          name: "6"
+        }
+      ]
+    };
+  },
+  methods: {
+    changeTab(index) {
+      if (this.topBarIndex === index) {
+        return;
+      }
+      this.topBarIndex = index;
+    },
+    onChangeTab(e) {
+      this.changeTab(e.detail.current);
+    }
   }
 };
 if (!Array) {
@@ -32,12 +65,31 @@ if (!Array) {
   const _component_CommodityList = common_vendor.resolveComponent("CommodityList");
   const _component_Hot = common_vendor.resolveComponent("Hot");
   const _component_Shop = common_vendor.resolveComponent("Shop");
-  (_component_Banner + _component_IndexSwiper + _component_Icons + _component_Recommend + _component_Card + _component_CommodityList + _component_Hot + _component_Shop)();
+  const _component_card = common_vendor.resolveComponent("card");
+  (_component_Banner + _component_IndexSwiper + _component_Icons + _component_Recommend + _component_Card + _component_CommodityList + _component_Hot + _component_Shop + _component_card)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.p({
+    a: common_vendor.f($data.topBar, (item, index, i0) => {
+      return {
+        a: common_vendor.t(item.name),
+        b: index,
+        c: common_vendor.o(($event) => $options.changeTab(index), index)
+      };
+    }),
+    b: common_vendor.f($data.topBar, (item, index, i0) => {
+      return {
+        a: common_vendor.t(item.name),
+        b: index
+      };
+    }),
+    c: common_vendor.o((...args) => $options.onChangeTab && $options.onChangeTab(...args)),
+    d: $data.topBarIndex,
+    e: common_vendor.p({
       cardTitle: "\u731C\u4F60\u559C\u6B22"
+    }),
+    f: common_vendor.p({
+      cardTitle: "\u4E3A\u60A8\u63A8\u8350"
     })
   };
 }
