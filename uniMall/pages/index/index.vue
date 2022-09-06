@@ -24,7 +24,6 @@
 		
 		<swiper @change="onChangeTab" :current="topBarIndex">
 			<swiper-item v-for="(item, index) in topBar" :key="index">
-				<view>{{item.name}}</view>
 			</swiper-item>
 		</swiper>
 		
@@ -36,7 +35,7 @@
 		<CommodityList></CommodityList>
 		<Hot></Hot>
 		<Shop></Shop>
-		<card cardTitle="为您推荐"></card>
+		<Card cardTitle="为您推荐"></Card>
 		<CommodityList></CommodityList>
 	</view>
 </template>
@@ -66,24 +65,12 @@
 			return {
 				topBarIndex: 0,
 				topBar: [
-					{
-						name: "1"
-					},
-					{
-						name: "2"
-					},
-					{
-						name: "3"
-					},
-					{
-						name: "4"
-					},
-					{
-						name: "5"
-					},
-					{
-						name: "6"
-					}
+					{ name: "1" },
+					{ name: "2" },
+					{ name: "3" },
+					{ name: "4" },
+					{ name: "5" },
+					{ name: "6" }
 				]
 			}
 		},
@@ -97,6 +84,14 @@
 			onChangeTab(e) {
 				this.changeTab(e.detail.current)
 			}
+		},
+		onLoad() {
+			uni.request({
+				url: "http://192.168.50.104:3000/api/index/list/data",
+				success: (res) => {
+					console.log(res);
+				}
+			})
 		}
 	}
 </script>
