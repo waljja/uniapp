@@ -16,14 +16,28 @@
 		</view>
 		<!-- #endif -->
 		
-		<scroll-view scroll-x="true" class="scroll-content">
-			<view class="scroll-item" v-for="(item, index) in topBar" :key="index" @tap="changeTab(index)">
+		<scroll-view scroll-x="true" :scroll-into-view="scrollIntoView" class="scroll-content">
+			<view :id="'top' + index" class="scroll-item" v-for="(item, index) in topBar" :key="index" @tap="changeTab(index)">
 				<text>{{item.name}}</text>
 			</view>
 		</scroll-view>
 		
-		<swiper @change="onChangeTab" :current="topBarIndex">
+		<swiper @change="onChangeTab" :current="topBarIndex" :style="'height: ' + dynHeight + 'px;'">
 			<swiper-item v-for="(item, index) in topBar" :key="index">
+        <view class="home">
+          <Banner></Banner>
+          <IndexSwiper></IndexSwiper>
+          <Icons></Icons>
+          <Recommend></Recommend>
+          <Card cardTitle='猜你喜欢'></Card>
+          <CommodityList></CommodityList>
+          <Card cardTitle="热销爆品"></Card>
+          <Hot></Hot>
+          <Card cardTitle="推荐店铺"></Card>
+          <Shop></Shop>
+          <card cardTitle="为您推荐"></card>
+          <CommodityList></CommodityList>
+        </view>
 			</swiper-item>
 		</swiper>
 		
@@ -63,14 +77,16 @@
 		},
 		data() {
 			return {
+        dynHeight: 0,
 				topBarIndex: 0,
+        scrollIntoView: "top0",
 				topBar: [
-					{ name: "1" },
-					{ name: "2" },
-					{ name: "3" },
-					{ name: "4" },
-					{ name: "5" },
-					{ name: "6" }
+					{ name: "大幅度快捷方式的" },
+					{ name: "大富科技大幅度" },
+					{ name: "地方的" },
+					{ name: "大幅度" },
+					{ name: "大幅度发" },
+					{ name: "就看见" }
 				]
 			}
 		},
@@ -80,11 +96,18 @@
 					return
 				}
 				this.topBarIndex = index
+        this.scrollIntoView = "top" + index // 点击滑块切换视图
 			},
 			onChangeTab(e) {
 				this.changeTab(e.detail.current)
 			}
 		},
+    onReady() {
+      let view = uni.createSelectorQuery().select(".home") // 获取结点
+      view.boundingClientRect(data => {
+        this.dynHeight = data.height // 计算高度值
+      }).exec()
+    },
 		onLoad() {
 			uni.request({
 				url: "http://192.168.50.104:3000/api/index/list/data",
